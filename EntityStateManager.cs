@@ -187,7 +187,7 @@ namespace ESMReader
         {
             Logger.Log("Successfully decoded " + esmName + "(UnityObject PathID " + esmAssetID + ")");
             String json_raw = entityStates.ToString();
-            System.IO.File.WriteAllText(fileName + ".json", );
+            System.IO.File.WriteAllText(fileName + ".json", json_raw);
         }
     }
 }
