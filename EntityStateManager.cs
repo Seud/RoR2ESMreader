@@ -169,7 +169,7 @@ namespace ESMReader
                     if(eoaState == EOAState.EndOfAttribute)
                     {
                         // Remove EOA bytes
-                        esaBytes.RemoveRange(esaBytes.Count - 3, 3);
+                        esaBytes.RemoveRange(esaBytes.Count - 6, 6);
                         Util.AddValue(esAttributes, esaName, esaType, esaBytes);
                         remainingAttributes--;
                         if(remainingAttributes > 0)

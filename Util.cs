@@ -13,8 +13,11 @@ namespace ESMReader
                 case EOAState.Viewed0: return (bytei == 2) ? EOAState.Viewed1 : EOAState.Viewed0;
                 case EOAState.Viewed1: return (bytei == 2) ? EOAState.Viewed2 : EOAState.Viewed0;
                 case EOAState.Viewed2:
-                    return (bytei == 4) ? EOAState.EndOfAttribute : 
+                    return (bytei == 4) ? EOAState.Cooldown2 : 
                         (bytei == 2) ? EOAState.Viewed2 : EOAState.Viewed0;
+                case EOAState.Cooldown2: return EOAState.Cooldown1;
+                case EOAState.Cooldown1: return EOAState.Cooldown0;
+                case EOAState.Cooldown0: return EOAState.EndOfAttribute;
                 default:
                     Logger.Warn("In EOAState, did not use a standard path");
                     return EOAState.Viewed0;
