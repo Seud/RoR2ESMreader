@@ -102,6 +102,7 @@ namespace ESMReader
 
                 // Reading the next Entity State name length
                 case ReaderState.ESNameL:
+                    if (bytei == 0) break;
                     sr = new StringReader(bytei);
                     rs = ReaderState.ESName;
                     break;
@@ -128,6 +129,7 @@ namespace ESMReader
 
                 // Reading the next Entity State Attribute name length
                 case ReaderState.ESANameL:
+                    if (bytei == 0) break;
                     sr = new StringReader(bytei);
                     rs = ReaderState.ESAName;
                     break;
@@ -152,7 +154,8 @@ namespace ESMReader
                         case 4: esaType = ESAType.UnityObject; break;
                         case 5: esaType = ESAType.Boolean; break;
                         case 6: esaType = ESAType.AnimationCurve; break;
-                        default: Logger.Error("Unknown type found : " + bytei); break;
+                        case 7: esaType = ESAType.Vector3; break;
+                        default: esaType = ESAType.Unknown; break;
                     }
                     esaBytes = new List<byte[]>();
                     eoaState = EOAState.Viewed0;

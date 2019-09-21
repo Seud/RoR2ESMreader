@@ -7,6 +7,8 @@
         String,
         UnityObject,
         Boolean,
-        AnimationCurve
+        AnimationCurve,
+        Vector3,
+        Unknown
     }
 }

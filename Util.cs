@@ -62,8 +62,6 @@ namespace ESMReader
                         esAttributes[esaName] = "";
                     else
                     {
-                        if (esaName == "muzzleString")
-                            ;
                         int bytei = BitConverter.ToInt32(esaBytes[0], 0);
                         if (bytei != 0) {
                             StringReader sr = new StringReader(bytei);
@@ -111,6 +109,12 @@ namespace ESMReader
                     break;
                 case ESAType.AnimationCurve:
                     esAttributes[esaName] = "AnimationCurve";
+                    break;
+                case ESAType.Vector3:
+                    esAttributes[esaName] = "Vector3";
+                    break;
+                case ESAType.Unknown:
+                    esAttributes[esaName] = "ERROR";
                     break;
             }
         }
